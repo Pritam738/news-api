@@ -242,4 +242,4 @@ The test cases will help you verify that your API endpoints are working as expec
 
 ## Future enhancements
 
-config and secret keys should be moved to some secret managemnt tool
+config and secret keys should be moved to some secret management tool
