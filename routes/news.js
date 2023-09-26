@@ -84,7 +84,6 @@ router.get('/top_headlines', async (req, res) => {
       const response = await axios.get(
         `https://gnews.io/api/v4/top-headlines?category=${category}&max=${count}&token=${GNEWS_API_KEY}`
       );
-      console.log( `https://gnews.io/api/v4/top-headlines?category=${category}&max=${count}&token=${GNEWS_API_KEY}`)
       const articles = response.data.articles;
       cache.set(cacheKey, articles);
       res.json(articles);
