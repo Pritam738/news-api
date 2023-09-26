@@ -5,6 +5,7 @@ const config = require('config');
 const NodeCache = require('node-cache');
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache articles for 1 hour
 const GNEWS_API_KEY = config.get('GNEWS_API_KEY');
+const logger = require('../logger');
 
 // Fetch N news articles
 router.get('/articles/:count', async (req, res) => {
@@ -19,6 +20,7 @@ router.get('/articles/:count', async (req, res) => {
     // Check if the data is cached
     if (cache.has(cacheKey)) {
       const cachedData = cache.get(cacheKey);
+      logger.info(`Using cached data for ${cacheKey}`);
       return res.json(cachedData);
     }
   
@@ -28,8 +30,10 @@ router.get('/articles/:count', async (req, res) => {
       );
       const articles = response.data.articles;
       cache.set(cacheKey, articles);
+      logger.info(`Fetched and cached data for ${cacheKey}`);
       res.json(articles);
     } catch (error) {
+      logger.error(`Error: ${error.message}`);
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
@@ -49,17 +53,20 @@ router.get('/search', async (req, res) => {
   
     if (cache.has(cacheKey)) {
       const cachedData = cache.get(cacheKey);
+      logger.info(`Using cached data for ${cacheKey}`);
       return res.json(cachedData);
     }
-  
+
     try {
       const response = await axios.get(
         `https://gnews.io/api/v4/search?q=${query}&max=${count}&token=${GNEWS_API_KEY}`
       );
       const articles = response.data.articles;
       cache.set(cacheKey, articles);
+      logger.info(`Fetched and cached data for ${cacheKey}`);
       res.json(articles);
     } catch (error) {
+      logger.error(`Error: ${error.message}`);
       res.status(500).json({ error: 'Internal Server Error' });
     }
 });
@@ -80,6 +87,7 @@ router.get('/search_title', async (req, res) => {
   
     if (cache.has(cacheKey)) {
       const cachedData = cache.get(cacheKey);
+      logger.info(`Using cached data for ${cacheKey}`);
       return res.json(cachedData);
     }
   
@@ -89,8 +97,10 @@ router.get('/search_title', async (req, res) => {
       );
       const articles = response.data.articles;
       cache.set(cacheKey, articles);
+      logger.info(`Fetched and cached data for ${cacheKey}`);
       res.json(articles);
     } catch (error) {
+      logger.error(`Error: ${error.message}`);
       res.status(500).json({ error: 'Internal Server Error' });
     }
 });
@@ -115,6 +125,7 @@ router.get('/top_headlines', async (req, res) => {
 
     if (cache.has(cacheKey)) {
       const cachedData = cache.get(cacheKey);
+      logger.info(`Using cached data for ${cacheKey}`);
       return res.json(cachedData);
     }
   
@@ -124,8 +135,10 @@ router.get('/top_headlines', async (req, res) => {
       );
       const articles = response.data.articles;
       cache.set(cacheKey, articles);
+      logger.info(`Fetched and cached data for ${cacheKey}`);
       res.json(articles);
     } catch (error) {
+      logger.error(`Error: ${error.message}`);
       res.status(500).json({ error: 'Internal Server Error' });
     }
 });
