@@ -61,9 +61,9 @@ Description: Search for articles by keywords.
 
 Parameters:
 
-count (string): The number of articles to fetch. Must be a positive integer.
+count (integer): The number of articles to fetch. Must be a positive integer.
 
-query (string): The search query for the title or author.
+query (string): The search query.
 
 Example Request:
 
@@ -91,16 +91,57 @@ json
   // ... (more articles)
 ]
 ```
+
+## Searching for Articles by title
+### Endpoint: /search_title
+
+### Method: GET
+
+Description: Search for articles by title.
+
+Parameters:
+
+count (integer): The number of articles to fetch. Must be a positive integer.
+
+query (string): The search query for the title.
+
+Example Request:
+
+#### Search by keyword:
+```
+http
+GET http://localhost:3000/search_title?count=10&query=john%20doe
+```
+
+#### Example Response:
+
+```
+json
+[
+  {
+    "title": "John Doe",
+    "description": "This is a sample article.",
+    "url": "https://example.com/article1"
+  },
+  {
+    "title": "Sample Article John doe",
+    "description": "This is another sample article.",
+    "url": "https://example.com/article2"
+  },
+  // ... (more articles)
+]
+```
+
 ## Fetching for Top-Headlines
 ### Endpoint: /top_headlines
 
 ### Method: GET
 
-Description: Search for articles by title or author.
+Description: Search for top headlines based of category.
 
 Parameters:
 
-count (string): The number of articles to fetch. Must be a positive integer.
+count (integer): The number of articles to fetch. Must be a positive integer.
 
 category (string): This parameter allows you to change the category for the request. 
 
@@ -133,9 +174,35 @@ json
 ]
 ```
 
+## Fetching List of valid categories
+### Endpoint: /top_headlines_categories
+
+### Method: GET
+
+Description: Fetch a list of valid categories for top headlines.
+
+
+Example Request:
+
+```
+http
+
+GET http://localhost:3000/top_headlines_categories
+```
+Example Response:
+
+```
+json
+
+["general", "world", "nation", "business", "technology", "entertainment", "sports", "science", "health"]
+```
 
 ### Error Responses
 HTTP Status 500: Internal Server Error - If there is an issue with the API server or the external GNews API.
+
+HTTP Status 404: Not Found - If there is an issue with the API end point.
+
+HTTP Status 400: Bad request - If there is an issue with the query params.
 
 ### Caching
 To improve performance, the API caches responses for a limited time period. This means that if you request the same data within the cache duration, you may receive cached data for faster response times.

@@ -8,4 +8,10 @@ describe('Fetching Articles', () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveLength(5); 
   });
+  
+  it('should return 400 if count is not positive', async () => {
+    const response = await request(app).get('/articles/-5');
+
+    expect(response.status).toBe(400);
+  });
 });
