@@ -237,7 +237,6 @@ All files        |   74.33 |    78.12 |     100 |   74.33 |
   logger.js      |     100 |      100 |     100 |     100 |
  news-api/routes |    70.1 |    78.12 |     100 |    70.1 |
   news.js        |    70.1 |    78.12 |     100 |    70.1 | 14,22-24,36-37,52-70,89-91,103-104,127-129,141-142
------------------|---------|----------|---------|---------|----------------------------------------------------
 
 The test cases will help you verify that your API endpoints are working as expected and provide a baseline for testing as you continue to develop your API.
 
