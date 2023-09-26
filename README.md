@@ -209,7 +209,7 @@ To improve performance, the API caches responses for a limited time period. This
 this will also prevent us exceed rate limmit that might be implented on 3rd party api side.
 
 ### Authentication
-No authentication is required to use this API. However, ensure that you have a valid GNews API key configured in the app.js file.
+No authentication is required to use this API. However, ensure that you have a valid GNews API key configured in the config/default.json and config/test.json file .
 
 
 ### Dockerization 
