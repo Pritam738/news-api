@@ -67,7 +67,7 @@ query (string): The search query.
 
 Example Request:
 
-#### Search by keyword:
+#### Search articles by keyword:
 ```
 http
 GET http://localhost:3000/search?count=10&query=john%20doe
@@ -107,7 +107,7 @@ query (string): The search query for the title.
 
 Example Request:
 
-#### Search by keyword:
+#### Search articles by title:
 ```
 http
 GET http://localhost:3000/search_title?count=10&query=john%20doe
@@ -149,7 +149,7 @@ ps: The available categories are: general, world, nation, business, technology, 
 
 Example Request:
 
-#### Search by keyword:
+#### Search top headlines based on category:
 ```
 http
 GET http://localhost:3000/top_headlines?count=10&category=general
@@ -211,6 +211,12 @@ this will also prevent us exceed rate limmit that might be implented on 3rd part
 ### Authentication
 No authentication is required to use this API. However, ensure that you have a valid GNews API key configured in the app.js file.
 
+
+### Dockerization 
+To Build the Docker Image.
+
+```docker build -t news-api .
+```
 ### Test Cases
 To run the tests, execute mocha from the command line:
 
@@ -218,4 +224,23 @@ To run the tests, execute mocha from the command line:
 npm test
 ```
 
+### Code Coverage
+
+```npx jest --coverage
+```
+-----------------|---------|----------|---------|---------|----------------------------------------------------
+File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------------|---------|----------|---------|---------|----------------------------------------------------
+All files        |   74.33 |    78.12 |     100 |   74.33 |
+ news-api        |     100 |      100 |     100 |     100 |
+  app.js         |     100 |      100 |     100 |     100 |
+  logger.js      |     100 |      100 |     100 |     100 |
+ news-api/routes |    70.1 |    78.12 |     100 |    70.1 |
+  news.js        |    70.1 |    78.12 |     100 |    70.1 | 14,22-24,36-37,52-70,89-91,103-104,127-129,141-142
+-----------------|---------|----------|---------|---------|----------------------------------------------------
+
 The test cases will help you verify that your API endpoints are working as expected and provide a baseline for testing as you continue to develop your API.
+
+## Future enhancements
+
+config and secret keys should be moved to some secret managemnt tool
