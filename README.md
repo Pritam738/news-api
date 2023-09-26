@@ -15,7 +15,7 @@ The base URL for the News API is:
 http://localhost:3000
 ```
 ## Fetching Articles
-### Endpoint: /articles/<number>
+### Endpoint: /articles/< number >
 
 ### Method: GET
 
