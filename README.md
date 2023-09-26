@@ -1,5 +1,5 @@
 # News API Documentation
-This documentation provides information on how to use the News API to fetch articles, search for articles by title or author, and customize the number of articles retrieved.
+This documentation provides information on how to use the News API to fetch articles, top head lines, search by keywords.
 
 ## Run code
 
