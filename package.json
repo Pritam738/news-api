@@ -1,7 +1,7 @@
 {
   "name": "news-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple API that interacts with a public news API for fetching articles",
   "main": "index.js",
   "scripts": {
     "test": "jest",

@@ -20,7 +20,7 @@ describe('Searching for Articles by title', () => {
 
     expect(response.status).toBe(400);
   });
-  
+
   it('should return 400 if count is not passed', async () => {
     const response = await request(app).get('/search_title?query=john%20doe');
 
