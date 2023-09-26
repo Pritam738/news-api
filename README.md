@@ -1,6 +1,14 @@
 # News API Documentation
 This documentation provides information on how to use the News API to fetch articles, search for articles by title or author, and customize the number of articles retrieved.
 
+## Run code
+
+```
+cd news-api
+npm i
+npm start
+```
+
 ## Base URL
 The base URL for the News API is:
 ```
@@ -16,6 +24,7 @@ Description: Fetch a specified number of top news articles.
 Parameters:
 
 count (integer): The number of articles to fetch. Must be a positive integer.
+
 Example Request:
 
 ```
@@ -53,7 +62,9 @@ Description: Search for articles by keywords.
 Parameters:
 
 count (string): The number of articles to fetch. Must be a positive integer.
+
 query (string): The search query for the title or author.
+
 Example Request:
 
 #### Search by keyword:
@@ -90,9 +101,10 @@ Description: Search for articles by title or author.
 Parameters:
 
 count (string): The number of articles to fetch. Must be a positive integer.
+
 category (string): This parameter allows you to change the category for the request. 
 
-ps: The available categories are : general, world, nation, business, technology, entertainment, sports, science and health.
+ps: The available categories are: general, world, nation, business, technology, entertainment, sports, science and health.
 
 Example Request:
 
@@ -127,6 +139,7 @@ HTTP Status 500: Internal Server Error - If there is an issue with the API serve
 
 ### Caching
 To improve performance, the API caches responses for a limited time period. This means that if you request the same data within the cache duration, you may receive cached data for faster response times.
+this will also prevent us exceed rate limmit that might be implented on 3rd party api side.
 
 ### Authentication
 No authentication is required to use this API. However, ensure that you have a valid GNews API key configured in the app.js file.
@@ -135,12 +148,7 @@ No authentication is required to use this API. However, ensure that you have a v
 To run the tests, execute mocha from the command line:
 
 ```
-npx mocha test/*.js
+npm test
 ```
 
 The test cases will help you verify that your API endpoints are working as expected and provide a baseline for testing as you continue to develop your API.
-
-## Scope of enhancement
-
-### Rate Limit
-The API may have rate limiting in place to prevent abuse. Ensure that you do not exceed the allowed rate limits to avoid being blocked.
