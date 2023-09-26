@@ -215,7 +215,8 @@ No authentication is required to use this API. However, ensure that you have a v
 ### Dockerization 
 To Build the Docker Image.
 
-```docker build -t news-api .
+```
+docker build -t news-api .
 ```
 ### Test Cases
 To run the tests, execute mocha from the command line:
