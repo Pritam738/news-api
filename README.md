@@ -225,7 +225,8 @@ npm test
 ```
 
 ### Code Coverage
-```npx jest --coverage
+```
+npx jest --coverage
 ```
 
 File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
