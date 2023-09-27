@@ -1,5 +1,5 @@
 # News API Documentation
-This documentation provides information on how to use the News API to fetch articles, top head lines, search by keywords.
+This documentation provides information on how to use the News API to fetch articles, top headlines, search by keywords and title.
 
 ## Run code
 
@@ -31,6 +31,8 @@ Example Request:
 http
 
 GET http://localhost:3000/articles/5
+
+Response status: 200
 ```
 Example Response:
 
@@ -71,6 +73,8 @@ Example Request:
 ```
 http
 GET http://localhost:3000/search?count=10&query=john%20doe
+
+Response status: 200
 ```
 
 #### Example Response:
@@ -111,6 +115,8 @@ Example Request:
 ```
 http
 GET http://localhost:3000/search_title?count=10&query=john%20doe
+
+Response status: 200
 ```
 
 #### Example Response:
@@ -153,6 +159,8 @@ Example Request:
 ```
 http
 GET http://localhost:3000/top_headlines?count=10&category=general
+
+Response status: 200
 ```
 
 #### Example Response:
@@ -188,6 +196,8 @@ Example Request:
 http
 
 GET http://localhost:3000/top_headlines_categories
+
+Response status: 200
 ```
 Example Response:
 
